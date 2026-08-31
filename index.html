@@ -3,168 +3,467 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Personal profile for landscaping, garden maintenance and outdoor labour work in Australia." />
-  <title>YOUR NAME | Landscaping & Garden Maintenance</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Landscaping and garden maintenance profile — reliable outdoor worker in Australia." />
+  <title>YANG XI | SHINOBI LANDSCAPING</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto+Condensed:wght@400;700&display=swap');
+
+    :root {
+      --ink: #101116;
+      --paper: #f1ead6;
+      --paper2: #e5dcc2;
+      --red: #b52a27;
+      --red2: #7f1918;
+      --green: #3c5b40;
+      --gold: #c59c45;
+      --smoke: #76807a;
+      --white: #fbf9ef;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Roboto Condensed', Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(181,42,39,.10), transparent 18%),
+        radial-gradient(circle at 80% 30%, rgba(60,91,64,.10), transparent 16%),
+        repeating-linear-gradient(0deg, rgba(16,17,22,.025) 0 1px, transparent 1px 4px),
+        var(--paper);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(115deg, transparent 0 42%, rgba(16,17,22,.035) 42.5% 43%, transparent 43.5% 100%);
+      mix-blend-mode: multiply;
+    }
+
+    .topbar {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 99;
+      background: rgba(16,17,22,.94);
+      border-bottom: 3px solid var(--red);
+      color: var(--white);
+    }
+    .nav {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 70px;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Rajdhani, sans-serif;
+      font-weight: 700;
+      letter-spacing: .14em;
+      font-size: 22px;
+    }
+    .crest {
+      width: 36px;
+      height: 36px;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-weight: 700;
+      background: var(--white);
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      margin-left: 22px;
+      font-family: Rajdhani, sans-serif;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    nav a:hover { color: #ff7c70; }
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 4% 80px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      align-items: center;
+      gap: 60px;
+      width: min(1250px, 94%);
+      margin: auto;
+      position: relative;
+    }
+    .seal {
+      position: absolute;
+      right: 1%;
+      top: 130px;
+      width: 170px;
+      height: 170px;
+      border: 7px double var(--red);
+      border-radius: 50%;
+      color: var(--red2);
+      display: grid;
+      place-items: center;
+      font-family: Rajdhani, sans-serif;
+      font-weight: 700;
+      letter-spacing: .15em;
+      transform: rotate(-15deg);
+      opacity: .65;
+      pointer-events: none;
+    }
+    .seal::after {
+      content: 'WORK • DISCIPLINE • PRIDE';
+      position: absolute;
+      inset: 20px;
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+      font-size: 12px;
+    }
+    .eyebrow {
+      color: var(--red);
+      font-family: Rajdhani, sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Rajdhani, sans-serif;
+      text-transform: uppercase;
+      font-size: clamp(54px, 9vw, 112px);
+      line-height: .84;
+      letter-spacing: .02em;
+      max-width: 760px;
+    }
+    h1 .accent { color: var(--red); }
+    .hero-sub {
+      margin-top: 22px;
+      max-width: 650px;
+      font-size: clamp(18px, 2.5vw, 24px);
+      font-weight: 700;
+    }
+    .hero-copy {
+      margin-top: 15px;
+      max-width: 630px;
+      color: #454841;
+      font-size: 18px;
+    }
+    .cta-row { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 2px solid var(--ink);
+      text-decoration: none;
+      color: var(--ink);
+      font-family: Rajdhani, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      transition: .2s ease;
+      background: var(--paper);
+    }
+    .btn.primary { background: var(--red); border-color: var(--red); color: white; }
+    .btn:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--ink); }
+
+    .hero-card {
+      border: 3px solid var(--ink);
+      background: rgba(255,255,255,.26);
+      padding: 30px;
+      box-shadow: 10px 10px 0 var(--green);
+      position: relative;
+    }
+    .hero-card::before {
+      content: 'FIELD PROFILE';
+      position: absolute;
+      top: -14px;
+      left: 22px;
+      background: var(--ink);
+      color: white;
+      padding: 4px 12px;
+      font-family: Rajdhani, sans-serif;
+      letter-spacing: .15em;
+      font-size: 12px;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-family: Rajdhani, sans-serif;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .dot { width: 11px; height: 11px; border-radius: 50%; background: #2e8b57; box-shadow: 0 0 0 5px rgba(46,139,87,.12); }
+    .stat { display: grid; grid-template-columns: 125px 1fr; border-top: 1px solid rgba(16,17,22,.2); padding: 12px 0; }
+    .stat b { font-family: Rajdhani, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
+
+    section { padding: 105px 4%; width: min(1250px, 94%); margin: auto; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 36px; }
+    .section-kicker { font-family: Rajdhani, sans-serif; color: var(--red); font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    h2 { font-family: Rajdhani, sans-serif; text-transform: uppercase; font-size: clamp(42px, 6vw, 70px); line-height: .9; }
+    .brush {
+      height: 7px;
+      width: min(280px, 35%);
+      background: linear-gradient(90deg, var(--red), transparent);
+      transform: skewX(-25deg);
+    }
+
+    .about-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; }
+    .quote {
+      font-family: Rajdhani, sans-serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.05;
+      padding-left: 25px;
+      border-left: 8px solid var(--red);
+    }
+    .body-copy { font-size: 18px; color: #4b4e48; margin-top: 22px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag { border: 2px solid var(--ink); padding: 7px 12px; font-family: Rajdhani, sans-serif; font-weight: 700; text-transform: uppercase; font-size: 13px; }
+
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .skill {
+      min-height: 170px;
+      border: 2px solid var(--ink);
+      padding: 22px;
+      background: rgba(255,255,255,.22);
+      position: relative;
+      transition: .2s ease;
+    }
+    .skill:hover { transform: translateY(-5px); background: rgba(255,255,255,.48); }
+    .skill-no { color: var(--red); font-family: Rajdhani; font-weight: 700; font-size: 14px; letter-spacing: .12em; }
+    .skill h3 { margin: 15px 0 8px; font-family: Rajdhani; font-size: 24px; text-transform: uppercase; }
+    .skill p { color: #555950; font-size: 15px; }
+
+    .timeline { border-left: 4px solid var(--red); padding-left: 30px; }
+    .job { position: relative; padding-bottom: 35px; }
+    .job:last-child { padding-bottom: 0; }
+    .job::before { content: ''; position: absolute; left: -41px; top: 7px; width: 16px; height: 16px; background: var(--paper); border: 4px solid var(--red); border-radius: 50%; }
+    .job-top { display: flex; justify-content: space-between; gap: 20px; align-items: start; }
+    .job h3 { font-family: Rajdhani; text-transform: uppercase; font-size: 29px; }
+    .date { font-family: Rajdhani; font-weight: 700; color: var(--red2); white-space: nowrap; }
+    .job .company { color: var(--green); font-weight: 700; }
+    .job ul { margin: 12px 0 0 18px; color: #4b4e48; }
+
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .work-card { min-height: 280px; border: 3px solid var(--ink); position: relative; overflow: hidden; background: #2f3a32; color: white; }
+    .work-card .work-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #3d5940, #1c2520 60%, #8a6a32); opacity: .95; }
+    .work-card:nth-child(2) .work-bg { background: linear-gradient(135deg, #7a3b27, #2e241e 60%, #3d5940); }
+    .work-card:nth-child(3) .work-bg { background: linear-gradient(135deg, #4a5d35, #252c1e 60%, #6d4e2a); }
+    .work-card:nth-child(4) .work-bg { background: linear-gradient(135deg, #334f59, #202a2f 60%, #8f7b3f); }
+    .work-card .content { position: absolute; inset: auto 0 0; padding: 25px; background: linear-gradient(transparent, rgba(0,0,0,.88)); }
+    .work-card h3 { font-family: Rajdhani; text-transform: uppercase; font-size: 28px; }
+    .work-card span { color: #f0d89f; }
+    .note { margin-top: 15px; color: #6a6d66; font-size: 13px; }
+
+    .profile-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .profile-item { border: 2px solid var(--ink); padding: 22px; background: rgba(255,255,255,.3); }
+    .profile-item small { display: block; text-transform: uppercase; font-family: Rajdhani; letter-spacing: .12em; color: var(--red); font-weight: 700; margin-bottom: 5px; }
+    .profile-item strong { font-family: Rajdhani; font-size: 24px; text-transform: uppercase; }
+
+    .contact {
+      background: var(--ink);
+      color: white;
+      width: 100%;
+      padding: 90px 4%;
+      margin-top: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact::after {
+      content: '忍';
+      position: absolute;
+      right: -25px;
+      bottom: -60px;
+      font-size: 340px;
+      color: rgba(255,255,255,.035);
+      font-family: serif;
+      pointer-events: none;
+    }
+    .contact-inner { width: min(1100px, 92%); margin: auto; display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: center; position: relative; z-index: 2; }
+    .contact h2 { color: white; }
+    .contact .section-kicker { color: #ff685e; }
+    .contact-copy { color: #c5c7c2; font-size: 18px; margin-top: 15px; }
+    .contact-list { display: grid; gap: 10px; }
+    .contact-link { color: white; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.25); padding: 12px 0; font-family: Rajdhani; font-size: 22px; }
+    .contact-link:hover { color: #ff786e; }
+
+    footer { padding: 26px 5%; text-align: center; color: #64675f; font-size: 13px; }
+
+    @media (max-width: 900px) {
+      .hero, .about-grid, .contact-inner { grid-template-columns: 1fr; }
+      .seal { opacity: .25; right: -30px; }
+      .skills { grid-template-columns: repeat(2, 1fr); }
+      .profile-box { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      nav a { display: none; }
+      .nav { min-height: 62px; }
+      .hero { padding-top: 110px; }
+      section { padding-top: 75px; padding-bottom: 75px; }
+      .skills, .profile-box, .work-grid { grid-template-columns: 1fr; }
+      .job-top { flex-direction: column; gap: 4px; }
+      .hero-card { box-shadow: 6px 6px 0 var(--green); }
+      h1 { font-size: 57px; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand">YOUR NAME<span>.</span></a>
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav" aria-label="Main navigation">
+  <header class="topbar">
+    <div class="nav">
+      <div class="brand"><div class="crest">Y</div> YANG XI</div>
+      <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#experience">Experience</a>
         <a href="#work">Work</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="status-pill"><span></span> AVAILABLE FOR WORK</div>
-          <p class="eyebrow">LANDSCAPING · GARDEN MAINTENANCE · OUTDOOR LABOUR</p>
-          <h1>Reliable hands.<br><em>Solid work.</em></h1>
-          <p class="lead">Hard-working and practical, with a focus on landscaping, garden maintenance and outdoor work across Australia.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="tel:+61400000000">Call Me <span>↗</span></a>
-            <a class="button button-secondary" href="assets/cv.pdf" download>Download CV <span>↓</span></a>
-          </div>
-          <div class="quick-facts">
-            <div><strong>Based in</strong><span>Perth, WA</span></div>
-            <div><strong>Availability</strong><span>Full-time / Casual</span></div>
-            <div><strong>Work area</strong><span>Perth Metro & surrounds</span></div>
-          </div>
-        </div>
-        <div class="hero-photo-wrap">
-          <div class="hero-photo">
-            <img src="assets/hero.jpg" alt="Working outdoors in landscaping" onerror="this.style.display='none'; this.parentElement.classList.add('photo-placeholder');" />
-            <div class="photo-fallback"><span>ADD YOUR</span><strong>WORK PHOTO</strong><small>Replace assets/hero.jpg</small></div>
-          </div>
-          <div class="photo-note"><span class="line"></span> READY TO GET TO WORK</div>
+    <div class="hero">
+      <div class="seal">FIELD READY</div>
+      <div>
+        <div class="eyebrow">Australia • Landscaping • Garden Maintenance</div>
+        <h1>SHINOBI<br><span class="accent">OF THE GARDEN</span></h1>
+        <p class="hero-sub">Reliable outdoor worker. Ready for hard work, clean results and long days in the field.</p>
+        <p class="hero-copy">A bold personal profile built for landscaping, gardening and outdoor labour opportunities in Australia. Replace the details below with your real experience, location, licences and contact information.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="tel:0400000000">Call Me</a>
+          <a class="btn" href="mailto:your@email.com">Email Me</a>
+          <a class="btn" href="cv.pdf">Download CV</a>
         </div>
       </div>
-    </section>
 
-    <section class="trust-strip">
-      <div class="container trust-grid">
-        <div><span class="icon">✓</span><span><b>Reliable</b><small>Shows up and gets it done</small></span></div>
-        <div><span class="icon">✓</span><span><b>Hands-on</b><small>Comfortable with physical work</small></span></div>
-        <div><span class="icon">✓</span><span><b>Safety-minded</b><small>Clean, practical work habits</small></span></div>
-        <div><span class="icon">✓</span><span><b>Team player</b><small>Easy to work with on site</small></span></div>
+      <aside class="hero-card">
+        <div class="status"><span class="dot"></span> Available for work</div>
+        <div class="stat"><b>Role</b><span>Landscaping / Garden Maintenance</span></div>
+        <div class="stat"><b>Location</b><span>Perth, WA</span></div>
+        <div class="stat"><b>Availability</b><span>Full-time / Casual</span></div>
+        <div class="stat"><b>Work style</b><span>Reliable • Practical • Hands-on</span></div>
+        <div class="stat"><b>Contact</b><span>0400 000 000</span></div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="section-head">
+        <div><div class="section-kicker">01 / Profile Scroll</div><h2>ABOUT ME</h2></div>
+        <div class="brush"></div>
       </div>
-    </section>
-
-    <section class="section" id="about">
-      <div class="container two-col">
+      <div class="about-grid">
         <div>
-          <p class="eyebrow">01 / ABOUT ME</p>
-          <h2>A worker you can rely on.</h2>
+          <div class="quote">“Show up. Work hard. Leave the site better than you found it.”</div>
+          <p class="body-copy">I am a practical, hard-working outdoor worker looking for landscaping, garden maintenance and general labour opportunities. I enjoy physical work, working outdoors and being part of a team that gets the job finished properly.</p>
+          <p class="body-copy">This section is ready for your real story: your background, years of experience, preferred work, suburb, transport and work rights.</p>
         </div>
-        <div class="section-copy">
-          <p>I’m a practical, hard-working person looking for opportunities in landscaping, garden maintenance and outdoor labour. I enjoy hands-on work, working outdoors and being part of a team that takes pride in the finished result.</p>
-          <p>I’m comfortable with physically demanding tasks, keeping work areas tidy and following instructions. I’m looking for a role where I can work hard, learn quickly and build long-term experience in the landscaping and horticulture industry.</p>
-          <div class="highlight-row">
-            <div><strong>01</strong><span>Hard-working attitude</span></div>
-            <div><strong>02</strong><span>Quick to learn</span></div>
-            <div><strong>03</strong><span>Respectful & punctual</span></div>
+        <div>
+          <div class="tag-list">
+            <span class="tag">Hard Working</span><span class="tag">Reliable</span><span class="tag">Punctual</span><span class="tag">Team Player</span><span class="tag">Physical Work</span><span class="tag">Outdoor Work</span>
           </div>
+          <p class="body-copy">Tip: keep this personal and factual. Australian employers usually care more about reliability, availability, practical skills and safety than flashy wording.</p>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark" id="skills">
-      <div class="container">
-        <div class="section-head">
-          <div><p class="eyebrow">02 / SKILLS</p><h2>What I can do.</h2></div>
-          <p>Practical skills for residential, commercial and general outdoor work.</p>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card"><span>01</span><h3>Garden Maintenance</h3><p>Lawn care, weeding, pruning, edging and general garden clean-up.</p></article>
-          <article class="skill-card"><span>02</span><h3>Planting & Pruning</h3><p>Planting, basic pruning, mulching and keeping outdoor areas maintained.</p></article>
-          <article class="skill-card"><span>03</span><h3>Lawn & Turf Work</h3><p>Mowing, edging, green waste handling and basic turf preparation.</p></article>
-          <article class="skill-card"><span>04</span><h3>Landscaping Assistance</h3><p>Site preparation, moving materials, digging, planting and general support.</p></article>
-          <article class="skill-card"><span>05</span><h3>Tools & Equipment</h3><p>Comfortable learning and using common landscaping hand tools and equipment.</p></article>
-          <article class="skill-card"><span>06</span><h3>General Labour</h3><p>Physically demanding outdoor work, clean-up, loading, unloading and site support.</p></article>
-        </div>
+    <section id="skills">
+      <div class="section-head">
+        <div><div class="section-kicker">02 / Jutsu List</div><h2>FIELD SKILLS</h2></div>
+        <div class="brush"></div>
+      </div>
+      <div class="skills">
+        <article class="skill"><div class="skill-no">JUTSU 01</div><h3>Garden Maintenance</h3><p>Lawn mowing, edging, pruning, weeding and general tidy-up work.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 02</div><h3>Landscaping Assist</h3><p>Planting, soil preparation, materials handling and site support.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 03</div><h3>Power Tools</h3><p>Add the real equipment you can safely and confidently use.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 04</div><h3>Site Cleanup</h3><p>Keeping work areas organised, clean and ready for the next stage.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 05</div><h3>Manual Labour</h3><p>Comfortable with lifting, digging, moving materials and physical work.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 06</div><h3>Teamwork</h3><p>Follow instructions, communicate clearly and help the team finish strong.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 07</div><h3>Work Ethic</h3><p>Reliable attendance, punctual starts and a job-first mindset.</p></article>
+        <article class="skill"><div class="skill-no">JUTSU 08</div><h3>Safety Mindset</h3><p>Respect site rules, PPE requirements and safe working practices.</p></article>
       </div>
     </section>
 
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head"><div><p class="eyebrow">03 / EXPERIENCE</p><h2>Work experience.</h2></div><p>Keep this section honest and specific. Replace the sample entries below with your real work history.</p></div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <div class="timeline-date">2025 — NOW</div>
-            <div class="timeline-content"><p class="role">LANDSCAPING / GARDEN MAINTENANCE</p><h3>Company Name</h3><p>Perth, WA</p><ul><li>Assisted with residential and commercial garden maintenance.</li><li>Lawn mowing, edging, pruning, weeding and general clean-up.</li><li>Supported site preparation, planting and movement of materials.</li><li>Kept work areas organised and safe throughout the day.</li></ul></div>
-          </article>
-          <article class="timeline-item">
-            <div class="timeline-date">2023 — 2025</div>
-            <div class="timeline-content"><p class="role">GENERAL LABOUR / OUTDOOR WORK</p><h3>Previous Employer</h3><p>Perth, WA</p><ul><li>Completed physical outdoor tasks in a fast-paced environment.</li><li>Worked as part of a team and followed daily job instructions.</li><li>Handled materials, tools and general site clean-up.</li></ul></div>
-          </article>
-        </div>
+    <section id="experience">
+      <div class="section-head">
+        <div><div class="section-kicker">03 / Mission Log</div><h2>EXPERIENCE</h2></div>
+        <div class="brush"></div>
+      </div>
+      <div class="timeline">
+        <article class="job">
+          <div class="job-top"><div><h3>Landscaping Labourer</h3><div class="company">Company Name • Perth, WA</div></div><div class="date">2024 — 2026</div></div>
+          <ul><li>Assisted with residential and commercial landscaping work.</li><li>Supported lawn care, pruning, planting and site cleanup.</li><li>Handled general outdoor labour and materials.</li></ul>
+        </article>
+        <article class="job">
+          <div class="job-top"><div><h3>Garden Maintenance Worker</h3><div class="company">Company Name • WA</div></div><div class="date">2022 — 2024</div></div>
+          <ul><li>Regular garden maintenance and property presentation.</li><li>Worked independently and as part of a small crew.</li><li>Maintained tools, equipment and clean work areas.</li></ul>
+        </article>
+      </div>
+      <p class="note">Replace these examples with your actual work history. Do not claim licences, experience or qualifications you do not have.</p>
+    </section>
+
+    <section id="work">
+      <div class="section-head">
+        <div><div class="section-kicker">04 / Battle Grounds</div><h2>MY WORK</h2></div>
+        <div class="brush"></div>
+      </div>
+      <div class="work-grid">
+        <div class="work-card"><div class="work-bg"></div><div class="content"><h3>Lawn & <span>Edging</span></h3><p>Replace with your real before/after photo.</p></div></div>
+        <div class="work-card"><div class="work-bg"></div><div class="content"><h3>Garden <span>Maintenance</span></h3><p>Show clean, finished outdoor spaces.</p></div></div>
+        <div class="work-card"><div class="work-bg"></div><div class="content"><h3>Planting & <span>Soil Work</span></h3><p>Show practical hands-on landscaping tasks.</p></div></div>
+        <div class="work-card"><div class="work-bg"></div><div class="content"><h3>Site <span>Cleanup</span></h3><p>Show the quality of your final result.</p></div></div>
       </div>
     </section>
 
-    <section class="section work-section" id="work">
-      <div class="container">
-        <div class="section-head"><div><p class="eyebrow">04 / MY WORK</p><h2>Real work. Real photos.</h2></div><p>Replace these placeholders with your own landscaping or outdoor work photos.</p></div>
-        <div class="gallery">
-          <figure><img src="assets/work-1.jpg" alt="Landscaping work photo" onerror="this.style.display='none'; this.parentElement.classList.add('gallery-placeholder');"><figcaption>Garden maintenance</figcaption></figure>
-          <figure><img src="assets/work-2.jpg" alt="Lawn maintenance work photo" onerror="this.style.display='none'; this.parentElement.classList.add('gallery-placeholder');"><figcaption>Lawn & turf work</figcaption></figure>
-          <figure><img src="assets/work-3.jpg" alt="Outdoor labour work photo" onerror="this.style.display='none'; this.parentElement.classList.add('gallery-placeholder');"><figcaption>Landscaping assistance</figcaption></figure>
-          <figure><img src="assets/work-4.jpg" alt="Planting work photo" onerror="this.style.display='none'; this.parentElement.classList.add('gallery-placeholder');"><figcaption>Planting & clean-up</figcaption></figure>
-        </div>
+    <section>
+      <div class="section-head">
+        <div><div class="section-kicker">05 / Equipment Scroll</div><h2>LICENCES & INFO</h2></div>
+        <div class="brush"></div>
+      </div>
+      <div class="profile-box">
+        <div class="profile-item"><small>Work Rights</small><strong>Australia</strong></div>
+        <div class="profile-item"><small>Driver Licence</small><strong>Add yours</strong></div>
+        <div class="profile-item"><small>Own Transport</small><strong>Add yours</strong></div>
+        <div class="profile-item"><small>White Card</small><strong>Add yours</strong></div>
+        <div class="profile-item"><small>Best Contact</small><strong>Phone / SMS</strong></div>
+        <div class="profile-item"><small>Availability</small><strong>Ready Now</strong></div>
       </div>
     </section>
 
-    <section class="section credentials">
-      <div class="container credentials-grid">
-        <div><p class="eyebrow">05 / DETAILS</p><h2>Useful things to know.</h2><p class="muted">Only list what you actually have. Delete anything that doesn’t apply.</p></div>
-        <div class="credential-list">
-          <div><span>01</span><div><strong>Work rights</strong><p>Australian work rights — replace with your exact status.</p></div></div>
-          <div><span>02</span><div><strong>Driver licence</strong><p>Replace with your licence class / status.</p></div></div>
-          <div><span>03</span><div><strong>Own transport</strong><p>Replace with “Yes” only if applicable.</p></div></div>
-          <div><span>04</span><div><strong>Safety / tickets</strong><p>White Card, machinery tickets or other relevant qualifications.</p></div></div>
+    <div class="contact" id="contact">
+      <div class="contact-inner">
+        <div>
+          <div class="section-kicker">06 / Summon Me</div>
+          <h2>LET'S GET<br>TO WORK.</h2>
+          <p class="contact-copy">Looking for a reliable extra pair of hands? Replace the placeholder contact details with your real phone number, email and work area.</p>
+        </div>
+        <div class="contact-list">
+          <a class="contact-link" href="tel:0400000000">📞 0400 000 000</a>
+          <a class="contact-link" href="sms:0400000000">💬 Send SMS</a>
+          <a class="contact-link" href="mailto:your@email.com">✉ your@email.com</a>
+          <a class="contact-link" href="cv.pdf">↓ Download CV</a>
         </div>
       </div>
-    </section>
-
-    <section class="availability">
-      <div class="container availability-inner">
-        <div><p class="eyebrow">CURRENT STATUS</p><h2>Available and ready to work.</h2><p>Open to landscaping, garden maintenance and general outdoor labour opportunities.</p></div>
-        <div class="availability-box"><div class="big-dot"></div><div><strong>AVAILABLE NOW</strong><span>Perth, WA · Full-time / Casual</span></div></div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="container contact-inner">
-        <div><p class="eyebrow">06 / CONTACT</p><h2>Let’s talk about the work.</h2><p class="contact-lead">Looking for a reliable extra pair of hands? Call, text or email me.</p></div>
-        <div class="contact-card">
-          <a href="tel:+61400000000"><span>PHONE</span><strong>0400 000 000</strong><small>Tap to call</small></a>
-          <a href="sms:+61400000000"><span>SMS</span><strong>0400 000 000</strong><small>Send a text</small></a>
-          <a href="mailto:your@email.com"><span>EMAIL</span><strong>your@email.com</strong><small>Send an email</small></a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div><strong>YOUR NAME<span>.</span></strong><p>Landscaping · Garden Maintenance · Outdoor Labour</p></div>
-      <a href="#top">Back to top ↑</a>
-    </div>
-    <div class="container footer-bottom"><span>© <span id="year"></span> Your Name</span><span>Built for work, not just for show.</span></div>
-  </footer>
-
-  <script src="script.js"></script>
+  <footer>© 2026 YANG XI · SHINOBI-INSPIRED LANDSCAPING PORTFOLIO · Replace all placeholders with your real details.</footer>
 </body>
 </html>
